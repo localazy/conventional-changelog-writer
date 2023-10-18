@@ -106,7 +106,11 @@ function conventionalChangelogWriterParseStream (context, options) {
         // previous blocks of logs
         if (options.reverse) {
           if (commit) {
-            commits.push(commit)
+            if (Array.isArray(commit)) {
+              commits.push(...commit)
+            } else {
+              commits.push(commit)
+            }
           }
 
           if (generateOn(keyCommit, commits, context, options)) {
@@ -145,7 +149,11 @@ function conventionalChangelogWriterParseStream (context, options) {
           }
 
           if (commit) {
-            commits.push(commit)
+            if (Array.isArray(commit)) {
+              commits.push(...commit)
+            } else {
+              commits.push(commit)
+            }
           }
         }
 
